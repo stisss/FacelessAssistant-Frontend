@@ -1,0 +1,42 @@
+@import "./variables";
+
+$font-family-base: 'Montserrat', sans-serif;
+
+// Font sizes
+$font-size-base: 0.75rem;
+$font-size-tiny: 0.625rem;
+$font-size-small: 0.6875rem;
+$font-size-medium: 0.875rem;
+$font-size-big: 1.0625rem;
+$font-size-large: 1.25rem;
+$font-size-huge: 2.1875rem;
+
+// Font weights
+$light: 300;
+$normal: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+
+// Scalling
+$viewport-width-min: 1000px;
+$viewport-width-max: 1980px;
+$base-font-size-min: 14px;
+$base-font-size-max: 18px;
+
+html {
+  @include fluid-type(
+    $viewport-width-min,
+    $viewport-width-max,
+    $base-font-size-min,
+    $base-font-size-max
+  );
+}
+
+body {
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+  font-weight: $normal;
+  color: $base-font-color;
+  line-height: 1.6;
+}

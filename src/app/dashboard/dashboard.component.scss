@@ -1,0 +1,22 @@
+@import "../../styles";
+
+.dashboard {
+  height: calc(100% - #{$navbar-height});
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .dashboard__quote {
+      width: 30%;
+      margin: 3rem;
+      font-size: $font-size-large;
+      font-style: italic;
+  }
+
+  .dashboard__get-started {
+    height: 3rem;
+    width: 10rem;
+  }
+}

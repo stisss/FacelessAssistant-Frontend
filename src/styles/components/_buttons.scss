@@ -1,0 +1,18 @@
+button {
+    min-width: 100px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.button--rounded {
+    border-radius: 20px;
+}
+
+.button--base {
+    background: white;
+}
+
+.button--alt {
+    background: $gradient-base;
+}

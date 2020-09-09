@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./styles/mixins";
+@import "./styles/typography";
+@import "./styles/variables";
+@import "./styles/reset";
+
+@import "./styles/components/buttons";
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  -webkit-animation: bgcolorchange 10s infinite;
+}
+
+@-webkit-keyframes bgcolorchange {
+  0% {
+    @include background-image--full-viewport($background-url-1)
+  }
+  50% {
+    @include background-image--full-viewport($background-url-2)
+  }
+  100% {
+    @include background-image--full-viewport($background-url-1)
+  }
+
+}

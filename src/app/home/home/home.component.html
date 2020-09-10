@@ -1,0 +1,31 @@
+<div class="home">
+    <div class="home__tutorial"></div>
+    <div class="home__image-panel">
+        <span class="home__header">Upload an image</span>
+        <div class="home__upload-area">
+            Drag file here
+        </div>
+        <div class="home__image-wrapper">
+            <img class="home__image"
+                 [hidden]="!imageSrc"
+                 [src]="imageSrc" />
+        </div>
+        <input hidden
+               type="file"
+               accept="image/*"
+               #uploader
+               (change)="uploadFile($event)" />
+        <div class="home__panel-buttons">
+            <button class="home__upload-button button--rounded button--base"
+                    (click)="uploader.click()">
+                Select file
+            </button>
+            <button class="home__identify-button button--rounded button--base"
+                    [class.button--alt]="isImageLoaded"
+                    [class.button--disabled]="!isImageLoaded">
+                Identify characters
+            </button>
+        </div>
+    </div>
+    <div class="home__tutorial"></div>
+</div>

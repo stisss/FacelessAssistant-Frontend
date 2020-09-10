@@ -1,18 +1,25 @@
-@mixin background-image--full-viewport ($image-url) {
-    background: url($image-url);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+@mixin background-image--full-viewport($image-url) {
+  background: url($image-url);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 @function strip-unit($value) {
-    @return $value / ($value * 0 + 1);
-  }
-  
-  @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-    font-size: calc(
-      #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
-        ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
-    );
-  }
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  font-size: calc(
+    #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+      ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+  );
+}
+
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

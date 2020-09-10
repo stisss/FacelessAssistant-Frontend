@@ -1,18 +1,39 @@
 button {
-    min-width: 100px;
-    &:hover {
-        cursor: pointer;
-    }
+  min-width: 100px;
+  min-height: 40px;
+  font-family: $font-family-base;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .button--rounded {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .button--base {
-    background: white;
+  background: white;
+  color: #cb356b;
+
+  &:hover {
+    box-shadow: 0 0 5px #424242;
+  }
 }
 
 .button--alt {
-    background: $gradient-base;
+  background: $gradient-base;
+  color: white;
+  &:hover {
+    box-shadow: 0 0 5px #424242;
+  }
+}
+
+.button--disabled {
+  background: gray;
+  color: white;
+  &:hover {
+    box-shadow: none;
+    cursor: auto;
+  }
 }

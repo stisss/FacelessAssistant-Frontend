@@ -2,13 +2,22 @@
     <div class="home__tutorial"></div>
     <div class="home__image-panel">
         <span class="home__header">Upload an image</span>
-        <div class="home__upload-area">
-            Drag file here
+        <div class="home__upload-area dropzone"
+             appDnd
+             (fileDropped)="uploadFile($event)">
+            <input type="file"
+                   accept="image/*"
+                   class="home__drop-area"
+                   #fileDropRef
+                   (change)="uploadFile($event)" />
+            <label for="fileDropRef" *ngIf="!isImageLoaded">
+                Drag file here
+            </label>
         </div>
         <div class="home__image-wrapper">
             <img class="home__image"
-                 [hidden]="!imageSrc"
-                 [src]="imageSrc" />
+                 [hidden]="!isImageLoaded"
+                 [src]="imageBase64" />
         </div>
         <input hidden
                type="file"
@@ -20,12 +29,31 @@
                     (click)="uploader.click()">
                 Select file
             </button>
-            <button class="home__identify-button button--rounded button--base"
+            <button [disabled]="!isImageLoaded"
+                    class="home__identify-button button--rounded button--base"
                     [class.button--alt]="isImageLoaded"
-                    [class.button--disabled]="!isImageLoaded">
+                    [class.button--disabled]="!isImageLoaded"
+                    (click)="onIdentifyCharacters()">
                 Identify characters
             </button>
         </div>
     </div>
-    <div class="home__tutorial"></div>
+    <div class="home__results" *ngIf="result">
+        <div class="home__result--success"
+             *ngIf="result; else noResults">
+             <div class="home__result-count">
+                 The Assistant has detected {{ numberOfDetected}} {{ numberOfDetected !== 1 ? 'faces' : 'face' }} and recognised {{ numberOfRecognized }} {{ numberOfRecognized !== 1 ? 'characters' : 'character' }}
+             </div>
+            <div *ngFor="let character of result">
+                <div class="name">name: {{ character.name }}</div>
+                <div class="name">aliases: {{ character.aliases }}</div>
+                <div class="name">description: {{ character.description }}</div>
+            </div>
+        </div>
+        <ng-template #noResults>
+            <span class="home__result--no-results">
+                failure
+            </span>
+        </ng-template>
+    </div>
 </div>

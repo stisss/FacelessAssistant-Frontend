@@ -10,9 +10,18 @@
 
   .dashboard__quote {
       width: 30%;
+      display: flex;
+      flex-direction: column;
       margin: 3rem;
       font-size: $font-size-large;
-      font-style: italic;
+      .dashboard__quote-body {
+        font-style: italic;
+        
+      }
+      
+      .dashboard__quote-author {
+        align-self: center;
+      }
   }
 
   .dashboard__get-started {

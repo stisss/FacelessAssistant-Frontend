@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GotAssistant';
+  files: any[] = [];
+
+  /**
+   * on file drop handler
+   */
+  onFileDropped($event) {
+    console.log('onFileDropped')
+  }
+
+  /**
+   * handle file from browsing
+   */
+  fileBrowseHandler(files) {
+    console.log("filebrowserhandler")
+  }
 }

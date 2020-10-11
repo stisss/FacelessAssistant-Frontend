@@ -100,5 +100,20 @@
   .home__results {
     background: $background-semitransparent;
     border-radius: $radius-small;
+    text-shadow: $text-shadow-dark;
+    padding: 2rem;
+    @include scrollbar(0px);
+
+    .home__result--success {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .home__result-count {
+        text-shadow: $text-shadow-light;
+        color: $alt-font-color;
+        font-weight: $medium;
+      }
+    }
   }
 }

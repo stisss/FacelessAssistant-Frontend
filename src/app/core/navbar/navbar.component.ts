@@ -7,7 +7,7 @@ import { Constants } from '../shared/Constants';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  readonly logoSrc = Constants.facelessLogoSrc;
+  readonly logoSrc = Constants.FACELESS_LOGO_SRC;
 
   constructor() { }
 

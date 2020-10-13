@@ -1,4 +1,4 @@
-@import "../../../styles.scss";
+@import "main";
 
 .home {
   height: calc(100% - #{$navbar-height});
@@ -101,18 +101,33 @@
     background: $background-semitransparent;
     border-radius: $radius-small;
     text-shadow: $text-shadow-dark;
-    padding: 2rem;
+    padding: 1rem;
     @include scrollbar(0px);
 
     .home__result--success {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 3rem;
 
       .home__result-count {
         text-shadow: $text-shadow-light;
         color: $alt-font-color;
         font-weight: $medium;
+      }
+
+      .home__result-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        background: $background-semitransparent-dark;
+        padding: 1rem;
+        border-radius: $radius-small;
+
+        .home__result-details--image {
+          height: 10rem;
+          width: 7.5rem;
+          border-radius: $radius-small;
+        }
       }
     }
   }

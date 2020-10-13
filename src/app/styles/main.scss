@@ -1,9 +1,9 @@
-@import "./styles/mixins";
-@import "./styles/typography";
-@import "./styles/variables";
-@import "./styles/reset";
+@import "mixins";
+@import "typography";
+@import "variables";
+@import "reset";
 
-@import "./styles/components/buttons";
+@import "components/buttons";
 
 html {
   height: 100%;

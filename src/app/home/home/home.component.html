@@ -44,7 +44,8 @@
              <div class="home__result-count">
                  The Assistant has detected {{ numberOfDetected}} {{ numberOfDetected !== 1 ? 'faces' : 'face' }} and recognised {{ numberOfRecognized }} {{ numberOfRecognized !== 1 ? 'characters' : 'character' }}
              </div>
-            <div *ngFor="let character of result">
+            <div *ngFor="let character of result" class="home__result-details">
+                <img src="{{ characterExampleSrc }}" class="home__result-details--image">
                 <div class="name">Name: {{ character.name }}</div>
                 <div class="name">Also known as: {{ character.aliases.join(', ') }}</div>
                 <div class="name">House: {{ character.houses.join(', ') }}</div>

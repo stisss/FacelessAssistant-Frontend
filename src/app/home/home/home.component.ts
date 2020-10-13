@@ -3,6 +3,7 @@ import { HomeService } from '../home.service';
 import { Recognition } from './models/recognition.model';
 import * as x from 'lodash';
 import { RecognitionDto } from './models/recognitionDto.model';
+import { Constants } from 'src/app/core/shared/Constants';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
   result: Array<Recognition>;
   numberOfDetected: number;
   numberOfRecognized: number;
+  characterExampleSrc: string = Constants.CHARACTER_EXAMPLE_SRC;
 
   constructor(private homeService: HomeService) { }
 

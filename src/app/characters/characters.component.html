@@ -1,1 +1,6 @@
-<p>characters works!</p>
+<div class="characters">
+  <app-characters-filters class="characters__filters"
+                          [(mode)]="currentMode"></app-characters-filters>
+  <app-characters-grid class="characters__grid" *ngIf="currentMode === gridMode"></app-characters-grid>
+  <app-characters-list class="characters__list" *ngIf="currentMode === listMode"></app-characters-list>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Mode } from './characters-filters/mode';
 
 @Component({
   selector: 'app-characters',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
+  currentMode: Mode = Mode.GRID;
+  readonly gridMode: Mode = Mode.GRID;
+  readonly listMode: Mode = Mode.LIST;
 
   constructor() { }
 

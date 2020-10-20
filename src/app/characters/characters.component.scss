@@ -1,0 +1,21 @@
+@import 'main';
+
+.characters {
+  height: calc(100% - #{$navbar-height});
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  width: 80%;
+  display: grid;
+  grid-template-columns: max(10%, 300px) auto;
+  gap: 0.5rem;
+
+  .characters__filters {
+    grid-column: 1;
+  }
+
+  .characters__grid, .characters__list {
+    grid-column: 2;
+  }
+}

@@ -1,20 +1,53 @@
 @import "main";
 
+$inner-padding: 2rem;
+
 .characters-filters {
   height: 100%;
 
   .characters-filters__container {
     height: 100%;
     border-radius: $radius-small;
-    background: white;
-    
+    background: $gradient-base-semitransparent;
+
     .characters-filters__display-modes {
+      height: max(25%, 10rem);
       display: flex;
       flex-direction: column;
+      justify-content: space-evenly;
       gap: 1rem;
-      padding: 2rem;
+      padding: $inner-padding;
       border-radius: $radius-small;
-      box-shadow: 0 0 5px #747474;
+      box-shadow: 0 6px 6px 0px #cb356c8c;
+      background: white;
+      opacity: 1;
+    }
+
+    .characters-filters__filters {
+      display: flex;
+      flex-direction: column;
+      gap: $inner-padding;
+      padding: $inner-padding;
+
+      .characters-filters__control-wraper {
+        
+        .characters-filters__control {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+
+          .characters-filters__control-label {
+          }
+
+          .characters-filters__icon {
+            position: absolute;
+            right: 1rem;
+          }
+        }
+
+      }
     }
   }
 }

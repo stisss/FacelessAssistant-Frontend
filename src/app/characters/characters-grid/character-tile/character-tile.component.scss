@@ -1,0 +1,32 @@
+@import 'main';
+
+.character-tile__result-details {
+  width: 11rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  background: #9c9c9c7a;
+  padding: 1rem;
+  border-radius: $radius-small;
+  box-shadow: 0 0 5px #747474;
+
+  .character-tile__result-details--image {
+    height: 10rem;
+    width: 9rem;
+    border-radius: $radius-small;
+  }
+
+  .character-tile__result-details--name {
+    font-size: $font-size-large;
+    font-weight: $semibold;
+    text-shadow: $text-shadow-dark;
+  }
+
+  .character-tile__result-details--attribute {
+    .character-tile__result-details--label {
+      font-weight: $semibold;
+    }
+  }
+}

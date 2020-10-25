@@ -1,10 +1,30 @@
 <div class="characters-filters">
   <div class="characters-filters__container">
     <div class="characters-filters__display-modes">
-      <button class="characters-filters__control button--rounded button--alt" (click)="onModeChange(gridMode)">Grid view</button>
-      <button class="characters-filters__control button--rounded button--alt" (click)="onModeChange(listMode)">List view</button>
+      <button class="characters-filters__control button--rounded button--alt"
+              (click)="onModeChange(gridMode)">Grid view</button>
+      <button class="characters-filters__control button--rounded button--alt"
+              (click)="onModeChange(listMode)">List view</button>
     </div>
     <div class="characters-filters__filters">
+      <div class="characters-filters__control-wraper">
+        <button class="characters-filters__control button--rounded button--base"
+                (click)="onModeChange(gridMode)">
+          <span class="characters-filters__control-label">Name</span>
+          <mat-icon class="characters-filters__icon">expand_more</mat-icon>
+        </button>
+      </div>
+      <div class="characters-filters__control-wraper">
+        <button class="characters-filters__control button--rounded button--base"
+                (click)="onModeChange(gridMode)">
+          <span class="characters-filters__control-label">Portrayed by</span>
+          <mat-icon class="characters-filters__icon">search</mat-icon>
+        </button>
+      </div>
+      <button class="characters-filters__control button--rounded button--base"
+              (click)="onModeChange(gridMode)">House</button>
+      <button class="characters-filters__control button--rounded button--base"
+              (click)="onModeChange(gridMode)">Culture</button>
     </div>
   </div>
 </div>

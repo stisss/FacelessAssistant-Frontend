@@ -8,6 +8,7 @@ import { DndDirective } from './directives/dnd.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CoreModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   exports: [
     DndDirective

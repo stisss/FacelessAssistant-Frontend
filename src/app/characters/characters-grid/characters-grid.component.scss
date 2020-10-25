@@ -1,6 +1,28 @@
-@import 'main';
+@import "main";
 
 .characters-grid {
-  background-color: pink;
   height: 100%;
+  @include scrollbar(0px);
+  border-radius: $radius-small;
+
+  .characters-grid__grid {
+    min-height: 100%;
+    padding: 1rem;
+    background: $background-semitransparent;
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    gap: .6rem;
+
+    .characters-grid__item {
+      @include flex-center();
+    }
+  }
+
+  .characters-grid__grid--auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .characters-grid__grid--auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
 }

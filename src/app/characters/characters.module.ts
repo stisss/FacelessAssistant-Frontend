@@ -9,10 +9,12 @@ import { CharactersFiltersComponent } from './characters-filters/characters-filt
 import { CharactersGridComponent } from './characters-grid/characters-grid.component';
 import { CharacterTileComponent } from './characters-grid/character-tile/character-tile.component';
 import { CharacterRecordComponent } from './characters-list/character-record/character-record.component';
+import { LookupFieldComponent } from './characters-filters/lookup-field/lookup-field.component';
+import { DropdownFieldComponent } from './characters-filters/dropdown-field/dropdown-field.component';
 
 
 @NgModule({
-  declarations: [CharactersComponent, CharactersListComponent, CharactersFiltersComponent, CharactersGridComponent, CharacterTileComponent, CharacterRecordComponent],
+  declarations: [CharactersComponent, CharactersListComponent, CharactersFiltersComponent, CharactersGridComponent, CharacterTileComponent, CharacterRecordComponent, LookupFieldComponent, DropdownFieldComponent],
   imports: [
     CommonModule,
     CharactersRoutingModule,

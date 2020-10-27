@@ -52,7 +52,7 @@
             <div *ngFor="let character of result"
                  class="home__result-details">
                  <!-- TODO replace this link with real data -->
-                <img src="https://firebasestorage.googleapis.com/v0/b/facelessassistant.appspot.com/o/440e83edacba3579e42bb6ad20860b50b0-18-arya-stark.rsquare.w700.jpg?alt=media&token=ae471808-6cd0-4467-bb1a-ee3d34174ee4"
+                <img src="{{ character.image }}"
                      class="home__result-details--image">
                 <div class="home__result-details--name">{{ character.name }}</div>
                 <div class="home__result-details--attribute">
@@ -62,10 +62,6 @@
                 <div class="home__result-details--attribute">
                     <span class="home__result-details--label">House: </span>
                     <span class="home__result-details--value">{{ character.houses.join(', ') }}</span>
-                </div>
-                <div class="home__result-details--attribute">
-                    <span class="home__result-details--label">Portrayed by: </span>
-                    <span class="home__result-details--value">{{ character.actors.join(', ') }}</span>
                 </div>
                 <div class="home__result-details--attribute">
                     <span class="home__result-details--label">Portrayed by: </span>

@@ -1,0 +1,29 @@
+@import 'variables';
+@import 'typography';
+
+.input-field__control-wrapper {
+  min-width: 100px;
+  min-height: 40px;
+  font-size: $font-size-medium;
+  @include flex-center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .input-field__control {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .input-field__control-label {
+    }
+
+    .input-field__icon {
+      position: absolute;
+      right: 1rem;
+    }
+  }
+}

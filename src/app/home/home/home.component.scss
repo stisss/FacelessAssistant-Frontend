@@ -20,6 +20,8 @@
     display: grid;
     grid-template-rows: 1fr 8fr 1fr;
     grid-template-columns: 0.8fr;
+    gap: 1rem;
+    padding: 1rem;
     justify-content: center;
     align-items: center;
     background: $background-semitransparent;
@@ -69,12 +71,12 @@
       align-self: center;
 
       .home__image {
-        display: block;
-        border-radius: $radius-small;
-        max-height: 80%;
-        max-width: 80%;
         width: auto;
         height: auto;
+        display: block;
+        max-height: 80%;
+        max-width: 80%;
+        border-radius: $radius-small;
       }
     }
 
@@ -126,7 +128,6 @@
         box-shadow: 0 0 5px #747474;
 
         .home__result-details--image {
-          height: 10rem;
           width: 9rem;
           border-radius: $radius-small;
         }

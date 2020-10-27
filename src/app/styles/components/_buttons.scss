@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'typography';
+
 button {
   min-width: 100px;
   min-height: 40px;
@@ -14,10 +17,11 @@ button {
 
 .button--base {
   background: white;
-  color: #cb356b;
+  color: $pink;
   
   &:hover {
     box-shadow: 0 0 5px #424242;
+    transition: 0.4s;
   }
 }
 
@@ -26,6 +30,7 @@ button {
   color: white;
   &:hover {
     box-shadow: 0 0 5px #424242;
+    transition: 0.4s;
   }
 }
 

@@ -7,24 +7,10 @@
               (click)="onModeChange(listMode)">List view</button>
     </div>
     <div class="characters-filters__filters">
-      <div class="characters-filters__control-wraper">
-        <button class="characters-filters__control button--rounded button--base"
-                (click)="onModeChange(gridMode)">
-          <span class="characters-filters__control-label">Name</span>
-          <mat-icon class="characters-filters__icon">expand_more</mat-icon>
-        </button>
-      </div>
-      <div class="characters-filters__control-wraper">
-        <button class="characters-filters__control button--rounded button--base"
-                (click)="onModeChange(gridMode)">
-          <span class="characters-filters__control-label">Portrayed by</span>
-          <mat-icon class="characters-filters__icon">search</mat-icon>
-        </button>
-      </div>
-      <button class="characters-filters__control button--rounded button--base"
-              (click)="onModeChange(gridMode)">House</button>
-      <button class="characters-filters__control button--rounded button--base"
-              (click)="onModeChange(gridMode)">Culture</button>
+      <app-lookup-field [placeholder]="'Name'"></app-lookup-field>
+      <app-lookup-field [placeholder]="'Portrayed by'"></app-lookup-field>
+      <app-dropdown-field [placeholder]="'House'"></app-dropdown-field>
+      <app-dropdown-field [placeholder]="'Culture'"></app-dropdown-field>
     </div>
   </div>
 </div>

@@ -1,0 +1,8 @@
+@import "main";
+
+.input-field__control-wrapper {
+  &:hover .input-field__control > .input-field__icon {
+    transform: rotate(180deg);
+    transition: 0.5s;
+  }
+}

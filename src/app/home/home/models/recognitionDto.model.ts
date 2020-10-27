@@ -5,4 +5,5 @@ export class RecognitionDto {
   actors;
   houses;
   culture;
+  image;
 }

@@ -10,10 +10,12 @@
     padding: 1rem;
     background: $background-semitransparent;
     display: grid;
-    grid-template-rows: repeat(auto-fill, 1fr);
+    align-items: start;
+    grid-template-rows: repeat(auto-fill, 18rem);
     gap: .6rem;
 
     .characters-grid__item {
+      height: 100%;
       @include flex-center();
     }
   }

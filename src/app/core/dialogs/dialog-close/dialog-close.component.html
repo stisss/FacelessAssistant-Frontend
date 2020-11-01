@@ -1,0 +1,31 @@
+<div class="dialog">
+  <mat-icon class="dialog-close__close-icon"
+            fontSet="material-icons-round"
+            mat-dialog-close>close</mat-icon>
+  <h1 class="dialog__header">{{ data.character.name }}</h1>
+  <hr class="dialog__hr" />
+  <mat-dialog-content class="dialog__content">
+    <div class="dialog__content-image-wrapper">
+      <img class="dialog__content-image" src="{{ data.character.image }}"/>
+    </div>
+    <div class="dialog__content-aliases" *ngIf="data.character.aliases">
+      <span>Also known as: </span>
+      <span>{{ data.character.aliases.join(', ') }}</span>
+    </div>
+    <div class="dialog__content-houses" *ngIf="data.character.houses">
+      <span>House: </span>
+      <span>{{ data.character.houses.join(', ') }}</span>
+    </div>
+    <div class="dialog__content-culture" *ngIf="data.character.culture">
+      <span>Culture: </span>
+      <span>{{ data.character.culture }}</span>
+    </div>
+    <div class="dialog__content-actors" *ngIf="data.character.actors">
+      <span>Portrayed by: </span>
+      <span>{{ data.character.actors.join(', ') }}</span>
+    </div>
+    <div class="dialog__content-description">
+      <p>{{ data.character.description }}</p>
+    </div>
+  </mat-dialog-content>
+</div>

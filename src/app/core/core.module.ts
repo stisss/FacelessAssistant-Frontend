@@ -3,9 +3,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
+import { DialogCloseComponent } from './dialogs/dialog-close/dialog-close.component';
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, DialogCloseComponent],
   imports: [
     RouterModule,
     CommonModule,

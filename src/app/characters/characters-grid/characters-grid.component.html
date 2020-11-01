@@ -3,6 +3,9 @@
        *ngIf="charactersPreviews"
        [ngClass]="{'characters-grid__grid--auto-fit': (3 >= 4),
               'characters-grid__grid--auto-fill': (3 < 4) }">
-    <app-character-tile class="characters-grid__item" *ngFor="let characterPreview of charactersPreviews" [characterPreview]="characterPreview"></app-character-tile>
+    <app-character-tile class="characters-grid__item"
+                        *ngFor="let characterPreview of charactersPreviews"
+                        [characterPreview]="characterPreview"
+                        (click)="onTileClick(characterPreview)"></app-character-tile>
   </div>
 </div>

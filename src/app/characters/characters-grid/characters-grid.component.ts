@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from 'src/app/core/dialogs/dialog.service';
 import { CharactersService } from '../characters.service';
 import { CharacterPreview } from '../models/character-preview.model';
 
@@ -10,7 +11,8 @@ import { CharacterPreview } from '../models/character-preview.model';
 export class CharactersGridComponent implements OnInit {
   charactersPreviews: Array<CharacterPreview>;
 
-  constructor(private charactersService: CharactersService) { }
+  constructor(private charactersService: CharactersService,
+              private dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.loadCharactersPreviews();
@@ -18,9 +20,12 @@ export class CharactersGridComponent implements OnInit {
 
   loadCharactersPreviews(): void {
     this.charactersService.getCharactersPreviews().subscribe(res => {
-      console.log(res[0][0])
       this.charactersPreviews = res.map(x => new CharacterPreview(x));
     });
+  }
+
+  onTileClick(character: CharacterPreview): void {
+    this.dialogService.showCharacterPreviewDialog(character);
   }
 
 }

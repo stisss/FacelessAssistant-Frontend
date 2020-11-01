@@ -6,4 +6,5 @@ export class RecognitionDto {
   houses;
   culture;
   image;
+  offsets;
 }

@@ -8,6 +8,7 @@ export class Recognition {
   houses: Array<string>;
   culture: string;
   image: string;
+  offsets: Array<number>;
 
   constructor(dto: RecognitionDto) {
     this.name = dto.name;
@@ -17,5 +18,6 @@ export class Recognition {
     this.houses = dto.houses;
     this.culture = dto.culture;
     this.image = dto.image;
+    this.offsets = dto.offsets;
   }
 }

@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsDataURL($event.target.files[0]);
       reader.onload = (e: any) => this.imageBase64 = e.target.result;
-      // this.image = $event.target.files[0];
+      this.result = null;
     }
     this.isImageLoaded = true;
   }

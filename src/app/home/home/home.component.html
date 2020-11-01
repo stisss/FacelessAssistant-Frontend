@@ -1,6 +1,6 @@
 <div class="home">
     <div class="home__tutorial">
-        
+
     </div>
     <div class="home__image-panel">
         <span class="home__header">Upload an image</span>
@@ -21,6 +21,13 @@
             <img class="home__image"
                  [hidden]="!isImageLoaded"
                  [src]="imageBase64" />
+            <div *ngFor="let character of result"
+                 class="home__frame"
+                 [style.left]="character.offsets[0] + '%'"
+                 [style.top]="character.offsets[1] + '%'"
+                 [style.right]="character.offsets[2] + '%'"
+                 [style.bottom]="character.offsets[3] + '%'">
+            </div>
         </div>
         <input hidden
                type="file"
@@ -51,7 +58,6 @@
             </div>
             <div *ngFor="let character of result"
                  class="home__result-details">
-                 <!-- TODO replace this link with real data -->
                 <img src="{{ character.image }}"
                      class="home__result-details--image">
                 <div class="home__result-details--name">{{ character.name }}</div>

@@ -12,8 +12,40 @@
   padding-bottom: 3%;
 
   .home__tutorial {
+    display: grid;
+    grid-template-rows: 1fr 5fr 4fr;
+    grid-template-columns: 0.8fr;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
     background: $background-semitransparent;
     border-radius: $radius-small;
+    @include scrollbar(0);
+
+
+    .home__tutorial-content {
+      font-size: $font-size-big;
+      text-shadow: $text-shadow-dark;
+      align-self: flex-start;
+      word-spacing: 0.2rem;
+    }
+    
+    .home__logo-img {
+      fill: white;
+      color: white;
+      width: 60%;
+      justify-self: center;
+      filter: brightness(100%);
+    }
+  }
+
+  .home__header {
+    height: 100%;
+    @include flex-center;
+    font-size: $font-size-large;
+    font-weight: $medium;
+    text-shadow: $text-shadow-dark;
   }
 
   .home__image-panel {
@@ -26,14 +58,6 @@
     align-items: center;
     background: $background-semitransparent;
     border-radius: $radius-small;
-
-    .home__header {
-      height: 100%;
-      @include flex-center;
-      font-size: $font-size-large;
-      font-weight: $medium;
-      text-shadow: $text-shadow-dark;
-    }
 
     .home__upload-area {
       width: 100%;
@@ -145,7 +169,7 @@
           .home__result-details--label {
             font-weight: $semibold;
           }
-  
+
           .home__result-details--value {
           }
         }

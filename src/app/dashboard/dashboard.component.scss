@@ -9,18 +9,23 @@
   justify-content: center;
 
   .dashboard__quote {
-      width: 30%;
+      width: 32%;
       display: flex;
       flex-direction: column;
       margin: 3rem;
+      padding-right: 2rem;
+      padding-left: 2rem;
+      gap: 1.5rem;
       font-size: $font-size-large;
+
       .dashboard__quote-body {
         font-style: italic;
         
       }
       
       .dashboard__quote-author {
-        align-self: center;
+        align-self: flex-end;
+        font-size: $font-size-medium;
       }
   }
 

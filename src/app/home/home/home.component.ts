@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit {
   result: Array<Recognition>;
   numberOfDetected: number;
   numberOfRecognized: number;
-  characterExampleSrc: string = Constants.CHARACTER_EXAMPLE_SRC;
+  readonly characterExampleSrc: string = Constants.CHARACTER_EXAMPLE_SRC;
+  readonly logoSrc = Constants.FACELESS_LOGO_SRC;
 
   constructor(private homeService: HomeService) { }
 

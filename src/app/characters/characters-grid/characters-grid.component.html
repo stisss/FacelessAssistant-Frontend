@@ -1,6 +1,5 @@
 <div class="characters-grid">
   <div class="characters-grid__grid"
-       *ngIf="charactersPreviews"
        [ngClass]="{'characters-grid__grid--auto-fit': (3 >= 4),
               'characters-grid__grid--auto-fill': (3 < 4) }">
     <app-character-tile class="characters-grid__item"

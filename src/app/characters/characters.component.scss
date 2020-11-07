@@ -19,6 +19,6 @@
   .characters__grid, .characters__list {
     grid-column: 2;
     height: 100%;
-    @include scrollbar();
+    @include scrollbar(5px);
   }
 }

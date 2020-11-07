@@ -1,17 +1,14 @@
 <div class="navbar">
-    <div class="navbar__logo">
+    <div class="navbar__logo" [routerLink]="['']">
         <img src="{{ logoSrc }}" class="navbar__logo-img">
         <span class="navbar__logo-text">Faceless Assistant</span>
     </div>
     <div class="navbar__menu">
         <div class="navbar__option">
-            <a [routerLink]="['home']">Home</a>
+            <a [routerLink]="['recognitions']">Recognitions</a>
         </div>
         <div class="navbar__option">
             <a [routerLink]="['characters']">Characters</a>
-        </div>
-        <div class="navbar__option">
-            <a [routerLink]="">Houses</a>
         </div>
         <div class="navbar__option">
             <a [routerLink]="">About</a>

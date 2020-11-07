@@ -12,6 +12,8 @@ export class DialogService {
 
   showCharacterPreviewDialog(character: CharacterPreview): void {
     this.dialog.open(DialogCloseComponent, {
+      panelClass: 'dialog-container',
+      // backdropClass: 'dialog-backdrop',
       disableClose: false,
       data: {
         character

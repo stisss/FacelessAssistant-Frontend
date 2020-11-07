@@ -1,4 +1,16 @@
-@import 'main';
+@import "main";
+
+::ng-deep .dialog-container .mat-dialog-container {
+  background: $gradient-base;
+  box-shadow: 0 0 5px #424242;
+}
+
+// ::ng-deep .dialog-backdrop {
+//   filter: blur(2rem);
+//   background-color: $background-semitransparent;
+//   opacity: 0.7 !important;
+//   transition: 0.05s;
+// }
 
 .dialog {
   display: flex;
@@ -8,26 +20,32 @@
 
   .dialog-close__close-icon {
     align-self: flex-end;
+    color: white;
   }
 
   .dialog__header {
-
+    color: white;
+    text-shadow: $text-shadow-dark;
   }
 
   .dialog__hr {
     height: 0.2rem;
     width: 100%;
-    color: red;
-    background-color: red;
+    background-color: white;
+    border-radius: $radius-small;
+    box-shadow: 0 0 5px #424242;
     border: none;
     outline: none;
+    margin-bottom: 1rem;
   }
 
   .dialog__content {
     display: grid;
-    grid-template-columns: 1fr 20vw;
+    grid-template-columns: 0.6fr 20vw;
     grid-template-rows: repeat(4, 0.5rem) auto;
     gap: 2rem;
+    color: white;
+    text-shadow: $text-shadow-dark;
 
     .dialog__content-image-wrapper {
       grid-column: 1;
@@ -40,32 +58,28 @@
         max-width: 12rem;
         max-height: 16rem;
         border-radius: $radius-small;
+        box-shadow: 0 0 1rem #a1a1a1;
       }
     }
 
     .dialog__content-aliases {
       grid-column: 2;
-
     }
 
     .dialog__content-houses {
       grid-column: 2;
-
     }
 
     .dialog__content-culture {
       grid-column: 2;
-
     }
 
     .dialog__content-actors {
       grid-column: 2;
-
     }
 
     .dialog__content-description {
       grid-column: 2;
-
     }
   }
 }

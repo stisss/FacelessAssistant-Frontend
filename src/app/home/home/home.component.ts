@@ -13,6 +13,7 @@ import { Constants } from 'src/app/core/shared/Constants';
 export class HomeComponent implements OnInit {
   imageBase64: string;
   isImageLoaded: boolean = false;
+  isImageHorizontal: boolean = false;
   result: Array<Recognition>;
   numberOfDetected: number;
   numberOfRecognized: number;
@@ -25,19 +26,32 @@ export class HomeComponent implements OnInit {
   }
 
   uploadFile($event): void {
+    this.isImageLoaded = false;
+    this.isImageHorizontal = false;
+
     if ($event.target.files) {
       const reader = new FileReader();
       reader.readAsDataURL($event.target.files[0]);
-      reader.onload = (e: any) => this.imageBase64 = e.target.result;
+
+      reader.onload = (e: any) => {
+        const img = new Image();
+        img.src = e.target.result;
+        this.isImageHorizontal = img.width > img.height;
+
+        setTimeout(() => {
+          this.imageBase64 = e.target.result;
+        }, 0);
+      };
+
       this.result = null;
+      this.isImageLoaded = true;
     }
-    this.isImageLoaded = true;
   }
 
   onIdentifyCharacters(): void {
     this.homeService.identifyCharacter(this.imageBase64).subscribe(res => {
       this.result = res.filter((dto: RecognitionDto) => dto.name !== 'Unknown')
-                       .map((dto: RecognitionDto) => new Recognition(dto));
+        .map((dto: RecognitionDto) => new Recognition(dto));
       this.numberOfDetected = res.length;
       this.numberOfRecognized = this.result.length;
     });

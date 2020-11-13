@@ -2,11 +2,12 @@
     <div class="home__tutorial">
         <span class="home__header">How to start?</span>
         <p class="home__tutorial-content">
-            Drag an image or select it from the memory on your device.<br /> <br /> 
-            If there are characters from the Game of Trones TV series, The Faceless Assistant will identify them!<br /> <br /> 
+            Drag an image or select it from the memory on your device.<br /> <br />
+            If there are characters from the Game of Trones TV series, The Faceless Assistant will identify them!<br /><br />
             You can also find and identify your favourite characters by yourself. Check out the Characters tab.
         </p>
-        <img src="{{ logoSrc }}" class="home__logo-img">
+        <img src="{{ logoSrc }}"
+             class="home__logo-img">
     </div>
     <div class="home__image-panel">
         <span class="home__header">Upload an image</span>
@@ -23,12 +24,19 @@
                 Drag file here
             </label>
         </div>
-        <div class="home__image-wrapper">
+        <div class="home__image-wrapper"
+             *ngIf="isImageLoaded">
             <img class="home__image"
+                 [class.horizontal]="isImageHorizontal"
+                 [class.vertical]="!isImageHorizontal"
                  [hidden]="!isImageLoaded"
                  [src]="imageBase64" />
             <div *ngFor="let character of result"
                  class="home__frame"
+                 #tooltip="matTooltip"
+                 matTooltip="{{character.name}}"
+                 matTooltipHideDelay="100"
+                 [matTooltipClass]="'custom-tooltip'"
                  [style.left]="character.offsets[0] + '%'"
                  [style.top]="character.offsets[1] + '%'"
                  [style.right]="character.offsets[2] + '%'"

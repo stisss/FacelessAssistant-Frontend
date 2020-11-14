@@ -7,7 +7,7 @@ import { Mode } from './characters-filters/mode';
   styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
-  currentMode: Mode = Mode.GRID;
+  currentMode: Mode = Mode.LIST;
   readonly gridMode: Mode = Mode.GRID;
   readonly listMode: Mode = Mode.LIST;
 

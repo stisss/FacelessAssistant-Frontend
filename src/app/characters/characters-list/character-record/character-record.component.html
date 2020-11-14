@@ -1,1 +1,9 @@
-<p>character-record works!</p>
+<div class="character-record">
+  <div class="character-record__result-details" *ngIf="characterPreview">
+    <div class="character-record__result-details--name">{{ characterPreview.name }}</div>
+    <div class="character-record__result-details--name">{{ characterPreview.aliases.join(', ') }}</div>
+    <div class="character-record__result-details--name">{{ characterPreview.houses.join(', ') }}</div>
+    <div class="character-record__result-details--name">{{ characterPreview.culture }}</div>
+    <div class="character-record__result-details--name">{{ characterPreview.actors.join(', ') }}</div>
+  </div>
+</div>

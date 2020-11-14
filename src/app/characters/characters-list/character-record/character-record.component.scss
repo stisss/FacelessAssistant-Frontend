@@ -1,0 +1,19 @@
+@import "main";
+
+.character-record {
+  &:hover > .character-record__result-details {
+    background: $gradient-base;
+    transition: 0.05s;
+    cursor: pointer;
+  }
+
+  .character-record__result-details {
+    height: $character-record-height;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    background: $gray-1;
+    border: 1px white solid;
+  }
+}

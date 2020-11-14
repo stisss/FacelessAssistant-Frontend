@@ -1,3 +1,15 @@
 <div class="characters-list">
-  characters-list
+  <div class="characters-list__list">
+    <div class="characters-list__headers">
+      <div class="character-list__header">Name</div>
+      <div class="character-list__header">Also known as</div>
+      <div class="character-list__header">House</div>
+      <div class="character-list__header">Culture</div>
+      <div class="character-list__header">Portrayed by</div>
+    </div>
+    <app-character-record class="characters-list__item"
+                          *ngFor="let characterPreview of charactersPreviews"
+                          [characterPreview]="characterPreview"
+                          (click)="onItemClick(characterPreview)"></app-character-record>
+  </div>
 </div>

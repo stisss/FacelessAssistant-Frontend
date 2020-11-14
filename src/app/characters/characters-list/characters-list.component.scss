@@ -1,6 +1,29 @@
-@import 'main';
+@import "main";
 
 .characters-list {
-  background-color: rgba(138, 138, 252, 0.336);
   height: 100%;
+  border-radius: $radius-small;
+  position: relative;
+
+  .characters-list__list {
+    min-height: 100%;
+    background: $background-semitransparent;
+    display: flex;
+    flex-direction: column;
+
+    .characters-list__headers {
+      height: 2rem;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+      padding: 0 2rem;
+      color: $pink;
+      font-weight: $bold;
+      background: $gray-2;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      z-index: 10;
+    }
+  }
 }

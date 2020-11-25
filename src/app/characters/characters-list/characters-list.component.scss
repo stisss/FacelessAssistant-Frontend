@@ -1,5 +1,7 @@
 @import "main";
 
+$marker-size: 0.4rem;
+
 .characters-list {
   height: 100%;
   border-radius: $radius-small;
@@ -26,8 +28,28 @@
       z-index: 10;
 
       .character-list__header {
+        display: flex;
+        align-items: center;
+        @extend .noselect;
+
         &:hover {
           cursor: pointer;
+        }
+
+        .character-list__sorting-marker {
+          width: 0;
+          height: 0;
+          margin-left: 0.4rem;
+          border-left: $marker-size solid transparent;
+          border-right: $marker-size solid transparent;
+        }
+
+        .ascending {
+          border-bottom: $marker-size solid $pink;
+        }
+
+        .descending {
+          border-top: $marker-size solid $pink;
         }
       }
     }

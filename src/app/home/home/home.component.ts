@@ -13,7 +13,7 @@ import { Constants } from 'src/app/core/shared/Constants';
 export class HomeComponent implements OnInit {
   imageBase64: string;
   isImageLoaded: boolean = false;
-  isImageHorizontal: boolean = false;
+  isImageHorizontal: boolean = true;
   result: Array<Recognition>;
   numberOfDetected: number;
   numberOfRecognized: number;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'src/app/core/dialogs/dialog.service';
 import { CharactersService } from '../characters.service';
 import { CharacterPreview } from '../models/character-preview.model';
+import { SortParameter } from './sortingParameter';
 
 @Component({
   selector: 'app-characters-list',
@@ -15,6 +16,8 @@ export class CharactersListComponent implements OnInit {
   houseAscending: boolean = false;
   cultureAscending: boolean = false;
   actorAscending: boolean = false;
+  currentSortParameter: SortParameter = SortParameter.NAME;
+  sortParameter = SortParameter;
 
   constructor(private charactersService: CharactersService,
     private dialogService: DialogService) { }
@@ -40,6 +43,7 @@ export class CharactersListComponent implements OnInit {
       this.charactersPreviews = this.charactersPreviews.sort((b, a) => a.name.localeCompare(b.name));
     }
     this.nameAscending = !this.nameAscending;
+    this.currentSortParameter = SortParameter.NAME;
   }
 
   sortByAlias(): void {
@@ -49,6 +53,7 @@ export class CharactersListComponent implements OnInit {
       this.charactersPreviews = this.charactersPreviews.sort((b, a) => a.aliases[0].localeCompare(b.aliases[0]));
     }
     this.aliasAscending = !this.aliasAscending;
+    this.currentSortParameter = SortParameter.ALIAS;
   }
 
   sortByHouse(): void {
@@ -58,6 +63,7 @@ export class CharactersListComponent implements OnInit {
       this.charactersPreviews = this.charactersPreviews.sort((b, a) => a.houses[0].localeCompare(b.houses[0]));
     }
     this.houseAscending = !this.houseAscending;
+    this.currentSortParameter = SortParameter.HOUSE;
   }
 
   sortByCulture(): void {
@@ -67,6 +73,7 @@ export class CharactersListComponent implements OnInit {
       this.charactersPreviews = this.charactersPreviews.sort((b, a) => a.culture.localeCompare(b.culture));
     }
     this.cultureAscending = !this.cultureAscending;
+    this.currentSortParameter = SortParameter.CULTURE;
   }
 
   sortByActor(): void {
@@ -76,6 +83,7 @@ export class CharactersListComponent implements OnInit {
       this.charactersPreviews = this.charactersPreviews.sort((b, a) => a.actors[0].localeCompare(b.actors[0]));
     }
     this.actorAscending = !this.actorAscending;
+    this.currentSortParameter = SortParameter.ACTOR;
   }
 }
 

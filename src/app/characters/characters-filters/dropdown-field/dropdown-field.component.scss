@@ -1,8 +1,107 @@
 @import "main";
 
 .input-field__control-wrapper {
+  position: relative;
+
   &:hover .input-field__control > .input-field__icon {
     transform: rotate(180deg);
     transition: 0.5s;
+  }
+
+  &:hover {
+    border-radius: 20px 20px 0px 0px;
+    transition: 0s;
+  }
+
+  &:hover > .input-field__dropdown {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+
+  .input-field__dropdown {
+    visibility: hidden;
+    display: none;
+    width: 100%;
+    max-height: 150px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 5;
+    background: white;
+    padding: 0 1rem;
+    border-radius: 0 0px 20px 20px;
+    @include scrollbar(5px);
+    box-shadow: 0 5px 5px #424242;
+
+    &::-webkit-scrollbar-track {
+      margin-bottom: 15px;
+    }
+
+    .input-field__list-item {
+      margin-bottom: 5px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      // list-style-position: inside;
+      white-space: nowrap;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      height: 2rem;
+
+      &:hover > .input-field__list-item-icon > .input-field__list-item-icon-close {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+      }
+
+      .input-field__list-item-icon {
+        height: 1.2rem;
+        width: 1.2rem;
+        background: $gradient-base;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        .input-field__list-item-icon-close {
+          color: white;
+          font-size: 1rem;
+          visibility: none;
+          opacity: 0;
+          display: none;
+          text-align: center;
+          height: min-content;
+          width: 100%;
+          vertical-align: middle;
+        }
+
+        &:hover .input-field__list-item-icon-close {
+          visibility: visible;
+          opacity: 1;
+          display: block;
+        }
+      }
+    }
+
+    .list-item__list-item--selected {
+      background: blue;
+      color: blue;
+      border-radius: 20px;
+      justify-content: space-between;
+
+      mat-icon {
+        color: white;
+        transform: scale(0.8);
+      }
+    }
+
+    .list-item__list-item--unselected {
+      &:hover {
+        background:blue;
+      }
+    }
   }
 }

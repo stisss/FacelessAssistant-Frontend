@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
 import { DialogService } from 'src/app/core/dialogs/dialog.service';
 import { CharactersService } from '../characters.service';
 import { CharacterPreview } from '../models/character-preview.model';
+import { CharactersFilter } from '../models/characters-filter';
 import { SortParameter } from './sortingParameter';
 
 @Component({
@@ -9,8 +11,9 @@ import { SortParameter } from './sortingParameter';
   templateUrl: './characters-list.component.html',
   styleUrls: ['./characters-list.component.scss']
 })
-export class CharactersListComponent implements OnInit {
+export class CharactersListComponent implements OnInit, OnDestroy {
   charactersPreviews: Array<CharacterPreview>;
+  charactersPreviewsFiltered: Array<CharacterPreview>;
   nameAscending: boolean = false;
   aliasAscending: boolean = false;
   houseAscending: boolean = false;
@@ -19,16 +22,36 @@ export class CharactersListComponent implements OnInit {
   currentSortParameter: SortParameter = SortParameter.NAME;
   sortParameter = SortParameter;
 
+  @Input() updateEvent: Subject<CharactersFilter>;
+  private subscription$: Subscription;
+
+  charactersFilter: CharactersFilter;
+
   constructor(private charactersService: CharactersService,
-    private dialogService: DialogService) { }
+              private dialogService: DialogService) { }
 
   ngOnInit(): void {
+    this.charactersFilter = new CharactersFilter();
     this.loadCharactersPreviews();
+    this.subscription$ = this.updateEvent.subscribe(res => {
+      this.charactersFilter = res;
+      this.charactersPreviewsFiltered = this.charactersPreviews.filter(character =>
+        // (this.charactersFilter.name === null || character.name === this.charactersFilter.name)
+        // && character.actors.includes(this.charactersFilter.actor)
+        this.charactersFilter.houses !== undefined && character.houses.filter(h => this.charactersFilter.houses.includes(h)).length > 0
+        && this.charactersFilter.cultures !== undefined && this.charactersFilter.cultures.includes(character.culture)
+      );
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
   }
 
   loadCharactersPreviews(): void {
     this.charactersService.getCharactersPreviews().subscribe(res => {
       this.charactersPreviews = res.map(x => new CharacterPreview(x));
+      this.charactersPreviewsFiltered = this.charactersPreviews;
     });
   }
 
@@ -38,9 +61,9 @@ export class CharactersListComponent implements OnInit {
 
   sortByName(): void {
     if (this.nameAscending) {
-      this.charactersPreviews = this.charactersPreviews.sort((a, b) => a.name.localeCompare(b.name));
+      this.charactersPreviewsFiltered = this.charactersPreviewsFiltered.sort((a, b) => a.name.localeCompare(b.name));
     } else {
-      this.charactersPreviews = this.charactersPreviews.sort((b, a) => a.name.localeCompare(b.name));
+      this.charactersPreviewsFiltered = this.charactersPreviewsFiltered.sort((b, a) => a.name.localeCompare(b.name));
     }
     this.nameAscending = !this.nameAscending;
     this.currentSortParameter = SortParameter.NAME;
@@ -48,9 +71,9 @@ export class CharactersListComponent implements OnInit {
 
   sortByAlias(): void {
     if (this.aliasAscending) {
-      this.charactersPreviews = this.charactersPreviews.sort((a, b) => a.aliases[0].localeCompare(b.aliases[0]));
+      this.charactersPreviewsFiltered = this.charactersPreviewsFiltered.sort((a, b) => a.aliases[0].localeCompare(b.aliases[0]));
     } else {
-      this.charactersPreviews = this.charactersPreviews.sort((b, a) => a.aliases[0].localeCompare(b.aliases[0]));
+      this.charactersPreviewsFiltered = this.charactersPreviewsFiltered.sort((b, a) => a.aliases[0].localeCompare(b.aliases[0]));
     }
     this.aliasAscending = !this.aliasAscending;
     this.currentSortParameter = SortParameter.ALIAS;
@@ -58,9 +81,9 @@ export class CharactersListComponent implements OnInit {
 
   sortByHouse(): void {
     if (this.houseAscending) {
-      this.charactersPreviews = this.charactersPreviews.sort((a, b) => a.houses[0].localeCompare(b.houses[0]));
+      this.charactersPreviewsFiltered = this.charactersPreviewsFiltered.sort((a, b) => a.houses[0].localeCompare(b.houses[0]));
     } else {
-      this.charactersPreviews = this.charactersPreviews.sort((b, a) => a.houses[0].localeCompare(b.houses[0]));
+      this.charactersPreviewsFiltered = this.charactersPreviewsFiltered.sort((b, a) => a.houses[0].localeCompare(b.houses[0]));
     }
     this.houseAscending = !this.houseAscending;
     this.currentSortParameter = SortParameter.HOUSE;
@@ -68,9 +91,9 @@ export class CharactersListComponent implements OnInit {
 
   sortByCulture(): void {
     if (this.cultureAscending) {
-      this.charactersPreviews = this.charactersPreviews.sort((a, b) => a.culture.localeCompare(b.culture));
+      this.charactersPreviewsFiltered = this.charactersPreviewsFiltered.sort((a, b) => a.culture.localeCompare(b.culture));
     } else {
-      this.charactersPreviews = this.charactersPreviews.sort((b, a) => a.culture.localeCompare(b.culture));
+      this.charactersPreviewsFiltered = this.charactersPreviewsFiltered.sort((b, a) => a.culture.localeCompare(b.culture));
     }
     this.cultureAscending = !this.cultureAscending;
     this.currentSortParameter = SortParameter.CULTURE;
@@ -78,9 +101,9 @@ export class CharactersListComponent implements OnInit {
 
   sortByActor(): void {
     if (this.actorAscending) {
-      this.charactersPreviews = this.charactersPreviews.sort((a, b) => a.actors[0].localeCompare(b.actors[0]));
+      this.charactersPreviewsFiltered = this.charactersPreviewsFiltered.sort((a, b) => a.actors[0].localeCompare(b.actors[0]));
     } else {
-      this.charactersPreviews = this.charactersPreviews.sort((b, a) => a.actors[0].localeCompare(b.actors[0]));
+      this.charactersPreviewsFiltered = this.charactersPreviewsFiltered.sort((b, a) => a.actors[0].localeCompare(b.actors[0]));
     }
     this.actorAscending = !this.actorAscending;
     this.currentSortParameter = SortParameter.ACTOR;

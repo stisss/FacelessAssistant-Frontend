@@ -7,10 +7,22 @@
               (click)="onModeChange(listMode)">List view</button>
     </div>
     <div class="characters-filters__filters">
-      <app-lookup-field [placeholder]="'Name'"></app-lookup-field>
-      <app-lookup-field [placeholder]="'Portrayed by'"></app-lookup-field>
-      <app-dropdown-field [placeholder]="'House'"></app-dropdown-field>
-      <app-dropdown-field [placeholder]="'Culture'"></app-dropdown-field>
+      <app-lookup-field [placeholder]="'Name'"
+                        [items]="names"
+                        (selectedItemsChange)="onNamesChange($event)">
+                      </app-lookup-field>
+      <app-lookup-field [placeholder]="'Portrayed by'"
+                        [items]="actors"
+                        (selectedItemsChange)="onActorsChange($event)">
+                      </app-lookup-field>
+      <app-dropdown-field [placeholder]="'House'"
+                          [items]="houses"
+                          (selectedItemsChange)="onHousesChange($event)">
+                        </app-dropdown-field>
+      <app-dropdown-field [placeholder]="'Culture'"
+                          [items]="cultures"
+                          (selectedItemsChange)="onCulturesChange($event)">
+                        </app-dropdown-field>
     </div>
   </div>
 </div>

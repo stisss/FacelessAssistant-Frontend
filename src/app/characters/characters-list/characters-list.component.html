@@ -43,7 +43,7 @@
                </div>
           </div>
           <app-character-record class="characters-list__item"
-                                *ngFor="let characterPreview of charactersPreviews"
+                                *ngFor="let characterPreview of charactersPreviewsFiltered"
                                 [characterPreview]="characterPreview"
                                 (click)="onItemClick(characterPreview)"></app-character-record>
      </div>

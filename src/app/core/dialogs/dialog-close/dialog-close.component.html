@@ -8,12 +8,12 @@
            src="{{ data.character.image }}" />
     </div>
     <div class="dialog__content-aliases"
-         *ngIf="data.character.aliases">
+         *ngIf="!data.character.aliases.includes('None')">
       <span>Also known as: </span>
       <span>{{ data.character.aliases.join(', ') }}</span>
     </div>
     <div class="dialog__content-houses"
-         *ngIf="data.character.houses">
+         *ngIf="!data.character.houses.includes('None')">
       <span>House: </span>
       <span>{{ data.character.houses.join(', ') }}</span>
     </div>

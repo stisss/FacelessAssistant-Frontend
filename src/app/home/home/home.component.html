@@ -4,10 +4,10 @@
         <p class="home__tutorial-content">
             Drag an image or select it from the memory on your device.<br /> <br />
             If there are characters from the Game of Trones TV series, The Faceless Assistant will identify them!<br /><br />
-            You can also find and identify your favourite characters by yourself. Check out the Characters tab.
+            You can also find and identify your favourite characters by yourself. Check out the <span [routerLink]="['/characters']" class="characters-inline">Characters</span> tab.
         </p>
-        <img src="{{ logoSrc }}"
-             class="home__logo-img">
+        <!-- <img src="{{ logoSrc }}"
+             class="home__logo-img"> -->
     </div>
     <div class="home__image-panel">
         <span class="home__header">Upload an image</span>
@@ -75,11 +75,11 @@
                 <img src="{{ character.image }}"
                      class="home__result-details--image">
                 <div class="home__result-details--name">{{ character.name }}</div>
-                <div class="home__result-details--attribute">
+                <div class="home__result-details--attribute" *ngIf="!character.aliases.includes('None')">
                     <span class="home__result-details--label">Also known as: </span>
                     <span class="home__result-details--value">{{ character.aliases.join(', ') }}</span>
                 </div>
-                <div class="home__result-details--attribute">
+                <div class="home__result-details--attribute" *ngIf="!character.aliases.includes('None')">
                     <span class="home__result-details--label">House: </span>
                     <span class="home__result-details--value">{{ character.houses.join(', ') }}</span>
                 </div>

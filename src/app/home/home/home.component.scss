@@ -206,3 +206,11 @@
   font-family: $font-family-base;
   box-shadow: 0 0 1rem #a1a1a1;
 }
+
+.characters-inline {
+  color: $pink;
+  font-weight: $semibold;
+  text-shadow: $text-shadow-light;
+  cursor: pointer;
+  outline: none !important;
+}

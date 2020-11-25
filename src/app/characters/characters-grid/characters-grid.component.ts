@@ -15,12 +15,15 @@ export class CharactersGridComponent implements OnInit, OnDestroy {
   private subscription$: Subscription;
   charactersPreviews: Array<CharacterPreview>;
   charactersPreviewsFiltered: Array<CharacterPreview>;
-  charactersFilter: CharactersFilter;
+  @Input() charactersFilter: CharactersFilter;
 
   constructor(private charactersService: CharactersService,
               private dialogService: DialogService) { }
 
   ngOnInit(): void {
+    if (!this.charactersFilter) {
+      this.charactersFilter = new CharactersFilter();
+    }
     this.charactersPreviews = new Array<CharacterPreview>();
     this.loadCharactersPreviews();
     this.subscription$ = this.updateEvent.subscribe(res => {

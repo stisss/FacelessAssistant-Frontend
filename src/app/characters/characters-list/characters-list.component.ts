@@ -25,21 +25,23 @@ export class CharactersListComponent implements OnInit, OnDestroy {
   @Input() updateEvent: Subject<CharactersFilter>;
   private subscription$: Subscription;
 
-  charactersFilter: CharactersFilter;
+  @Input() charactersFilter: CharactersFilter;
 
   constructor(private charactersService: CharactersService,
               private dialogService: DialogService) { }
 
   ngOnInit(): void {
-    this.charactersFilter = new CharactersFilter();
+    if (!this.charactersFilter) {
+      this.charactersFilter = new CharactersFilter();
+    }
     this.loadCharactersPreviews();
     this.subscription$ = this.updateEvent.subscribe(res => {
       this.charactersFilter = res;
       this.charactersPreviewsFiltered = this.charactersPreviews.filter(character =>
         // (this.charactersFilter.name === null || character.name === this.charactersFilter.name)
         // && character.actors.includes(this.charactersFilter.actor)
-        this.charactersFilter.houses !== undefined && character.houses.filter(h => this.charactersFilter.houses.includes(h)).length > 0
-        && this.charactersFilter.cultures !== undefined && this.charactersFilter.cultures.includes(character.culture)
+        character.houses.filter(h => this.charactersFilter.houses.includes(h)).length > 0
+        && this.charactersFilter.cultures.includes(character.culture)
       );
     });
   }

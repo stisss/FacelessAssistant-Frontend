@@ -1,6 +1,6 @@
 <div class="characters">
   <app-characters-filters class="characters__filters"
-                          [(mode)]="currentMode"
+                          [mode]="currentMode" (modeChange)="onModeChange($event)"
                           [names]="names" (namesChange)="onNameChange($event)"
                           [actors]="actors" (actorsChange)="onActorChange($event)"
                           [cultures]="cultures" (culturesChange)="onCulturesChange($event)"
@@ -8,8 +8,10 @@
   </app-characters-filters>
   <app-characters-grid class="characters__grid"
                        *ngIf="currentMode === gridMode"
+                       [charactersFilter]="charactersFilter"
                        [updateEvent]="filterChangedSubject"></app-characters-grid>
   <app-characters-list class="characters__list"
                        *ngIf="currentMode === listMode"
+                       [charactersFilter]="charactersFilter"
                        [updateEvent]="filterChangedSubject"></app-characters-list>
 </div>

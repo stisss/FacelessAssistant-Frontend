@@ -42,6 +42,15 @@ export class CharactersComponent implements OnInit, OnDestroy {
     this.filterChangedSubject.complete();
   }
 
+  onModeChange(mode: Mode): void {
+    this.currentMode = mode;
+
+    // TODO get rid of this hack
+    setTimeout(() => {
+      this.filterChangedSubject.next(this.charactersFilter);
+    }, 800);
+  }
+
   loadNames(): void {
     this.charactersService.getNames().subscribe(res => {
       this.names = res.sort();

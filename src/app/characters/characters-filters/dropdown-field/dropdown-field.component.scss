@@ -65,7 +65,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         .input-field__list-item-icon-close {
           color: white;
           font-size: 1rem;
@@ -83,24 +83,6 @@
           opacity: 1;
           display: block;
         }
-      }
-    }
-
-    .list-item__list-item--selected {
-      background: blue;
-      color: blue;
-      border-radius: 20px;
-      justify-content: space-between;
-
-      mat-icon {
-        color: white;
-        transform: scale(0.8);
-      }
-    }
-
-    .list-item__list-item--unselected {
-      &:hover {
-        background:blue;
       }
     }
   }

@@ -1,6 +1,24 @@
 <div class="input-field__control-wrapper button--rounded button--base">
   <div class="input-field__control">
-    <span class="input-field__control-label">{{ placeholder }}</span>
+    <!-- <span class="input-field__control-label">{{ placeholder }}</span> -->
+    <input type="text"
+           class="input-field__input"
+           #textInput
+           placeholder="{{ placeholder }}"
+           (keyup)="updateList(textInput.value)"
+           (keyup.enter)="onEnter(textInput.value)"
+           value="{{ selectedItem }}" />
     <mat-icon class="input-field__icon">search</mat-icon>
   </div>
+  <ul class="input-field__dropdown">
+    <li class="input-field__list-item"
+        *ngFor="let item of filteredItems"
+        (click)="onItemSelect(item)">
+      <span>{{ item }}</span>
+      <div *ngIf="selectedItem === item"
+           class="input-field__list-item-icon">
+        <mat-icon class="input-field__list-item-icon-close">close</mat-icon>
+      </div>
+    </li>
+  </ul>
 </div>

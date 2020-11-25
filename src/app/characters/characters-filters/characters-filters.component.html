@@ -9,11 +9,11 @@
     <div class="characters-filters__filters">
       <app-lookup-field [placeholder]="'Name'"
                         [items]="names"
-                        (selectedItemsChange)="onNamesChange($event)">
+                        (selectedItemChange)="onNamesChange($event)">
                       </app-lookup-field>
       <app-lookup-field [placeholder]="'Portrayed by'"
                         [items]="actors"
-                        (selectedItemsChange)="onActorsChange($event)">
+                        (selectedItemChange)="onActorsChange($event)">
                       </app-lookup-field>
       <app-dropdown-field [placeholder]="'House'"
                           [items]="houses"

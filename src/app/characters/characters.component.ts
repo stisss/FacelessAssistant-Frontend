@@ -78,11 +78,14 @@ export class CharactersComponent implements OnInit, OnDestroy {
   }
 
   onNameChange(name: string): void {
+    console.log(name)
     this.charactersFilter.name = name;
     this.filterChangedSubject.next(this.charactersFilter);
   }
 
   onActorChange(actor: string): void {
+    console.log(actor)
+
     this.charactersFilter.actor = actor;
     this.filterChangedSubject.next(this.charactersFilter);
   }

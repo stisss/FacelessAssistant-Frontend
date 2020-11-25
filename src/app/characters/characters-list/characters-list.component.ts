@@ -38,9 +38,9 @@ export class CharactersListComponent implements OnInit, OnDestroy {
     this.subscription$ = this.updateEvent.subscribe(res => {
       this.charactersFilter = res;
       this.charactersPreviewsFiltered = this.charactersPreviews.filter(character =>
-        // (this.charactersFilter.name === null || character.name === this.charactersFilter.name)
-        // && character.actors.includes(this.charactersFilter.actor)
-        character.houses.filter(h => this.charactersFilter.houses.includes(h)).length > 0
+        (this.charactersFilter.name ? character.name === this.charactersFilter.name : true)
+        && (this.charactersFilter.actor ? character.actors.includes(this.charactersFilter.actor) : true)
+        && character.houses.filter(h => this.charactersFilter.houses.includes(h)).length > 0
         && this.charactersFilter.cultures.includes(character.culture)
       );
     });

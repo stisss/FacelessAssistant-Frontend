@@ -15,7 +15,9 @@ export class LookupFieldComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.filteredItems = this.items;
+    setTimeout(() => {
+      this.filteredItems = this.items;
+    }, 900);
   }
 
   updateList(phrase: string): void {
@@ -39,7 +41,9 @@ export class LookupFieldComponent implements OnInit {
   }
 
   onEnter(phrase: string): void {
-    if (phrase && phrase.length > 0 && this.filteredItems.length > 0) {
+    if (phrase && phrase.length > 0
+      && this.filteredItems.length > 0
+      && phrase !== this.selectedItem) {
       this.onItemSelect(this.filteredItems[0]);
     }
   }

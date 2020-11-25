@@ -29,10 +29,10 @@ export class CharactersGridComponent implements OnInit, OnDestroy {
     this.subscription$ = this.updateEvent.subscribe(res => {
       this.charactersFilter = res;
       this.charactersPreviewsFiltered = this.charactersPreviews.filter(character =>
-        // (this.charactersFilter.name === null || character.name === this.charactersFilter.name)
-        // && character.actors.includes(this.charactersFilter.actor)
-        this.charactersFilter.houses !== undefined && character.houses.filter(h => this.charactersFilter.houses.includes(h)).length > 0
-        && this.charactersFilter.cultures !== undefined && this.charactersFilter.cultures.includes(character.culture)
+        (this.charactersFilter.name ? character.name === this.charactersFilter.name : true)
+        && (this.charactersFilter.actor ? character.actors.includes(this.charactersFilter.actor) : true)
+        && character.houses.filter(h => this.charactersFilter.houses.includes(h)).length > 0
+        && this.charactersFilter.cultures.includes(character.culture)
       );
     });
   }
